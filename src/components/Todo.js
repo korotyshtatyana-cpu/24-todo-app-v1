@@ -13,9 +13,19 @@ function Todo() {
   }
 
   function deleteTodoHandler(id) {
-    console.log("deleteTodoHandler");
-    console.log(id);
     setTodoList([...todoList.filter((item) => item.id != id)]);
+  }
+
+  function completeTodoHandler(id) {
+    setTodoList(
+      todoList.map((item) => {
+        if (item.id === id) {
+          return { ...item, isCompleted: !item.isCompleted };
+        }
+
+        return item;
+      }),
+    );
   }
 
   return (
@@ -27,7 +37,14 @@ function Todo() {
       <Actions />
       <div>
         {todoList.map((item) => {
-          return <TodoItem {...item} key={item.id} deleteItemAction={deleteTodoHandler} />;
+          return (
+            <TodoItem
+              {...item}
+              key={item.id}
+              deleteItemAction={deleteTodoHandler}
+              completeItemAction={completeTodoHandler}
+            />
+          );
         })}
       </div>
 
