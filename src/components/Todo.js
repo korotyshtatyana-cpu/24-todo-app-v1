@@ -6,9 +6,17 @@ import { useState } from "react";
 
 function Todo() {
   const [todoList, setTodoList] = useState([]);
+  const [idCounter, setIdCounter] = useState(0);
 
   function createTodoHandler(text) {
-    setTodoList([...todoList, { id: todoList.length, text: text, isCompleted: false }]);
+    setTodoList([...todoList, { id: idCounter, text: text, isCompleted: false }]);
+    setIdCounter(idCounter + 1);
+  }
+
+  function deleteTodoHandler(id) {
+    console.log("deleteTodoHandler");
+    console.log(id);
+    setTodoList([...todoList.filter((item) => item.id != id)]);
   }
 
   return (
@@ -20,7 +28,7 @@ function Todo() {
       <Actions />
       <div>
         {todoList.map((item) => {
-          return <TodoItem {...item} key={item.id} />;
+          return <TodoItem {...item} key={item.id} deleteItemAction={deleteTodoHandler} />;
         })}
       </div>
 
