@@ -1,8 +1,8 @@
-function Info({ listLength }) {
+function Info({ listLength, completedTasksCount }) {
   if (listLength === 0) {
     return <p>List is Empty</p>;
   } else {
-    return <p>Tou have {listLength} tasks</p>;
+    return <p>You complete {completedTasksCount} tasks</p>;
   }
 }
 

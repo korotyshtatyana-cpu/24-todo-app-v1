@@ -1,4 +1,6 @@
-import { RiTodoFill } from "react-icons/ri";
+import { RiTodoFill, RiDeleteBin2Line, RiCheckLine } from "react-icons/ri";
+
+import Button from "./Button";
 
 function TodoItem({ id, text, isCompleted, deleteItemAction, completeItemAction }) {
   return (
@@ -6,8 +8,12 @@ function TodoItem({ id, text, isCompleted, deleteItemAction, completeItemAction 
       <RiTodoFill />
       <p>{text}</p>
       {isCompleted ? <p>complete</p> : <p>NotComplete</p>}
-      <button onClick={() => deleteItemAction(id)}>Delete Item</button>
-      <button onClick={() => completeItemAction(id)}>Complete Item</button>
+      <Button onClick={() => deleteItemAction(id)} title="Delete Item">
+        <RiDeleteBin2Line />
+      </Button>
+      <Button onClick={() => completeItemAction(id)} title="Complete Item">
+        <RiCheckLine />
+      </Button>
     </div>
   );
 }

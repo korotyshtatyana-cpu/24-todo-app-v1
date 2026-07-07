@@ -1,11 +1,12 @@
 import { useState } from "react";
 
+import Button from "./Button";
+
 function CreateTodoForm({ createTodo }) {
   const [todoText, setTodoText] = useState("");
 
   function onChangeTodoTextHandler(todoText) {
     setTodoText(todoText);
-    console.log(todoText);
   }
 
   function onSubmitHandler(event) {
@@ -24,7 +25,7 @@ function CreateTodoForm({ createTodo }) {
           onChangeTodoTextHandler(e.target.value);
         }}
       ></input>
-      <button type="submit">Create</button>
+      <Button type="submit">Create</Button>
     </form>
   );
 }
