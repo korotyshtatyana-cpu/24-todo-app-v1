@@ -3,14 +3,13 @@ import CreateTodoForm from "./CreateTodoForm";
 import Info from "./Info";
 import Actions from "./Actions";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Todo() {
   const [todoList, setTodoList] = useState([]);
-  const [idCounter, setIdCounter] = useState(0);
 
   function createTodoHandler(text) {
-    setTodoList([...todoList, { id: idCounter, text: text, isCompleted: false }]);
-    setIdCounter(idCounter + 1);
+    setTodoList([...todoList, { id: uuidv4(), text: text, isCompleted: false }]);
   }
 
   function deleteTodoHandler(id) {
