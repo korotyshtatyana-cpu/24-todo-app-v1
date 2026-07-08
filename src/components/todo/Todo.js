@@ -1,7 +1,7 @@
-import TodoItem from "./TodoItem";
-import CreateTodoForm from "./CreateTodoForm";
-import Info from "./Info";
-import Actions from "./Actions";
+import TodoItem from "../todoItem/TodoItem";
+import CreateTodoForm from "../createTodoForm/CreateTodoForm";
+import Info from "../Info";
+import Actions from "../Actions";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./Todo.module.css";

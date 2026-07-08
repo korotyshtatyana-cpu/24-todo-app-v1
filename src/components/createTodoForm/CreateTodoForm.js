@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./CreateTodoForm.module.css";
 
-import Button from "./Button";
+import Button from "../ui/Button";
 
 function CreateTodoForm({ createTodo }) {
   const [todoText, setTodoText] = useState("");

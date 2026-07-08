@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./ui/Button";
 import { RiDeleteBin2Line, RiRefreshLine } from "react-icons/ri";
 
 function Actions({ resetTodoList, deleteCompletedTasks, hasTasks, hasCompletedTasks }) {
