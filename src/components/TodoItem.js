@@ -1,19 +1,24 @@
-import { RiTodoFill, RiDeleteBin2Line, RiCheckLine } from "react-icons/ri";
+import { RiTodoFill, RiDeleteBin2Line } from "react-icons/ri";
+import { FaCheck } from "react-icons/fa";
 
+import styles from "./TodoItem.module.css";
 import Button from "./Button";
 
 function TodoItem({ id, text, isCompleted, deleteItemAction, completeItemAction }) {
   return (
-    <div>
-      <RiTodoFill />
-      <p>{text}</p>
-      {isCompleted ? <p>complete</p> : <p>NotComplete</p>}
-      <Button onClick={() => deleteItemAction(id)} title="Delete Item">
-        <RiDeleteBin2Line />
+    <div className={`${styles.todo} ${isCompleted ? styles.completedTodo : ""}`}>
+      <RiTodoFill className={styles.todoIcon} />
+      <div className={styles.todoText}>{text}</div>
+
+      {/* <Button onClick={() => deleteItemAction(id)} title="Delete Item">
+        <RiDeleteBin2Line className={styles.deleteIcon} />
       </Button>
       <Button onClick={() => completeItemAction(id)} title="Complete Item">
-        <RiCheckLine />
-      </Button>
+        <FaCheck className={styles.checkIcon} />
+      </Button> */}
+
+      <FaCheck className={styles.checkIcon} onClick={() => completeItemAction(id)} />
+      <RiDeleteBin2Line className={styles.deleteIcon} onClick={() => deleteItemAction(id)} />
     </div>
   );
 }

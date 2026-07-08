@@ -4,6 +4,7 @@ import Info from "./Info";
 import Actions from "./Actions";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import styles from "./Todo.module.css";
 
 function Todo() {
   const [todoList, setTodoList] = useState([]);
@@ -67,7 +68,7 @@ function Todo() {
         hasTasks={todoList.length !== 0}
         hasCompletedTasks={completedTodoCount !== 0}
       />
-      <div>
+      <div className={styles.todoListContainer}>
         {todoList.map((item) => {
           return (
             <TodoItem

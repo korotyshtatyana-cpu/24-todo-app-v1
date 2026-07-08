@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./CreateTodoForm.module.css";
 
 import Button from "./Button";
 
@@ -16,17 +17,19 @@ function CreateTodoForm({ createTodo }) {
   }
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <input
-        type="text"
-        placeholder="New Todo"
-        value={todoText}
-        onChange={(e) => {
-          onChangeTodoTextHandler(e.target.value);
-        }}
-      ></input>
-      <Button type="submit">Create</Button>
-    </form>
+    <div className={styles.createTodoFormContainer}>
+      <form onSubmit={onSubmitHandler}>
+        <input
+          type="text"
+          placeholder="New Todo"
+          value={todoText}
+          onChange={(e) => {
+            onChangeTodoTextHandler(e.target.value);
+          }}
+        ></input>
+        <Button type="submit">Create</Button>
+      </form>
+    </div>
   );
 }
 
